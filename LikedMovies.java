@@ -27,13 +27,10 @@ public class LikedMovies{
             String line = value.toString();
             String[] linevalues = line.split(",");
             try {
-                // Double.valueOf(linevalues[0]).intValue();
-                // userId = Integer.parseInt(linevalues[0]);
-                // rating = Integer.parseInt(linevalues[2]);
-                // movieId = Integer.parseInt(linevalues[1]);
+                
                 userId = Integer.parseInt(linevalues[0]);
                 rating = Double.valueOf(linevalues[2]);
-                movieId = Integer.parseInt(linevalues[1]); 
+                movieId = Integer.parseInt(linevalues[1]);
              }
              catch (NumberFormatException e)
              {
@@ -44,7 +41,7 @@ public class LikedMovies{
             if (rating >=3.0){
                 context.write(new IntWritable(userId), new IntWritable(movieId));
             }
-            
+
         }
     }
 
